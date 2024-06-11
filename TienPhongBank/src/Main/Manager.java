@@ -17,16 +17,18 @@ public class Manager {
 
     Scanner sc = new Scanner(System.in);
 
-    String AccountValidNum = "^\\d{10}$";
+    String AccountValidNum = "^\\d{10}$"; //valid account co do dai = 10
+    //dung de lay captcha
     char[] chars = "1AaBbCc2DdEeFf3GgHhIiJjKkLl4MmNnOo5PpQqRrSsTt6UuVvWw8XxYyZz9".toCharArray();
-
+    
+    //lay thu vien su dung ngon ngu trong muc folder ngon ngu
     public void getWordLanguage(Locale curLocate, String key) {
         ResourceBundle words;
         words = ResourceBundle.getBundle("Languages/" + curLocate, curLocate);
         String value = words.getString(key);
         System.out.printf(value);
     }
-
+    //kiem tra limit
     public int checkInputLimit(String input, int min, int max, Locale language) {
         System.out.println(input);
         while (true) {
@@ -42,7 +44,7 @@ public class Manager {
             }
         }
     }
-
+    //kiem tra String
     public String checkInputString(Locale language) {
         while (true) {
             String result = sc.nextLine();
@@ -54,7 +56,7 @@ public class Manager {
             }
         }
     }
-
+    //kiem tra neu so tai khoan match 2 dieu kien chi dung number va phai co 10 chu so
     public int checkInputAccount(Locale language) {
         while (true) {
             String result = sc.nextLine();
@@ -65,7 +67,7 @@ public class Manager {
             System.out.println();
         }
     }
-
+    //kiem tra password phai co chu cai va so, 8<length <31
     public String checkInputPassword(Locale language) {
         String result;
         while (true) {
@@ -103,7 +105,7 @@ public class Manager {
         }
         return true;
     }
-
+    //kiem tra input ccaptcha // dieu kien la ham nhap chi can 1 chu cai contain trong cai captcha
     public boolean checkInputCaptcha(String captchaGenerated, Locale language) {
         System.out.println(captchaGenerated);
         getWordLanguage(language, "enterCaptcha");
@@ -115,7 +117,7 @@ public class Manager {
         }
         return true;
     }
-
+    //tao ra random captcha
     public String generateCpatchaText() {
         String randStringValue = "";
         int length = 6;
@@ -127,7 +129,7 @@ public class Manager {
         }
         return result.toString();
     }
-
+    //UI login
     public void login(Locale language) {
         getWordLanguage(language, "enterAccountNumber");
         int accountNum = checkInputAccount(language);
@@ -146,7 +148,7 @@ public class Manager {
             }
         }
     }
-
+    //UI trang chu
     public void menu() {
         Locale vietnamese = new Locale("vi");
         Locale english = Locale.ENGLISH;
@@ -166,7 +168,7 @@ public class Manager {
                 return;
         }
     }
-
+    //main
     public static void main(String[] args) {
         Manager manager = new Manager();
         manager.menu();
