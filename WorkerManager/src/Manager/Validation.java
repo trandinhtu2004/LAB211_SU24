@@ -116,11 +116,11 @@ public class Validation {
         }
     }
 
-    public int checkInputSalary(String input) {
+    public double checkInputSalary(String input) {
         System.out.println(input);
         while (true) {
             try {
-                int result = Integer.parseInt(in.nextLine().trim());
+                double result = Double.parseDouble(in.nextLine().trim());
                 if (result < 0) {
                     throw new NumberFormatException();
                 }
@@ -134,7 +134,7 @@ public class Validation {
     }
 
     public boolean checkWorkerExist(ArrayList<Worker> lw,
-            String Id, String name, int age, int salary, String workLocation) {
+            String Id, String name, int age, double salary, String workLocation) {
         for (Worker worker : lw) {
             if (Id.equalsIgnoreCase(worker.getId())
                     && name.equalsIgnoreCase(worker.getName())
@@ -145,14 +145,14 @@ public class Validation {
         return true;
     }
 
-    public int checkInputSalaryIfNull(String message, int curSalary) {
-        int salary = 0;
+    public double checkInputSalaryIfNull(String message, double curSalary) {
+        double salary = curSalary;
         System.out.println(message);
         while (true){
         String input = in.nextLine().trim();
         if (!input.isEmpty()) {
             try {
-                salary = Integer.parseInt(input);
+                salary = Double.parseDouble(input);
                 return salary;
             } catch (NumberFormatException e) {
                 System.err.println("Invalid input. Please enter a valid salary.");
@@ -160,7 +160,7 @@ public class Validation {
             }
         }else if (input.isEmpty()){
                  return curSalary;   
-                    }
+                }
         }
     }
 

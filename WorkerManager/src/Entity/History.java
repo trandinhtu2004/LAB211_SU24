@@ -21,7 +21,7 @@ public class History extends Worker implements Comparable<History>{
     public History() {
     }
 
-    public History(String status, String date, String id, String name, int age, int salary, String workLocation) {
+    public History(String status, String date, String id, String name, int age, double salary, String workLocation) {
         super(id, name, age, salary, workLocation);
         this.status = status;
         this.date = date;

@@ -13,13 +13,13 @@ public class Worker {
     private String id;
     private String name;
     private int age;
-    private int salary;
+    private double salary;
     private String workLocation;
 
     public Worker() {
     }
 
-    public Worker(String id, String name, int age, int salary, String workLocation) {
+    public Worker(String id, String name, int age, double salary, String workLocation) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -51,11 +51,11 @@ public class Worker {
         this.age = age;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
@@ -65,12 +65,6 @@ public class Worker {
 
     public void setWorkLocation(String workLocation) {
         this.workLocation = workLocation;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s | %-8s | %2d | %-7.lf | %15s", id,name
-                            ,age,salary,workLocation);
     }
 
 }

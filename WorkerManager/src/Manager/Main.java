@@ -16,6 +16,7 @@ public class Main {
          ArrayList<Worker> lw = new ArrayList<>();
         ArrayList<History> lh = new ArrayList<>();
         Manager manager = new Manager();
+        manager.addNewWorker(lw);
         
         while (true) {            
              int choice = manager.menu();
