@@ -207,6 +207,12 @@ public class Manager {
         Calendar calendar = Calendar.getInstance();
         return dateFormat.format(calendar.getTime());
     }
+    
+    public String testGetCurrentDate(){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar cl = Calendar.getInstance();
+        return df.format(cl.getTime());
+    }
 
     public void displayInfoSalary(ArrayList<History> lh) {
         if (lh.isEmpty()){

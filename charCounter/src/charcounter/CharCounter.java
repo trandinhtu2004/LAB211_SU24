@@ -21,6 +21,7 @@ public class CharCounter {
     public Map<String, Integer> wordCounter = new HashMap<String, Integer>();
     
     public void analyze(String content){
+        
         for (char c : content.toCharArray()){
             if (Character.isSpaceChar(c)){
                 continue;
@@ -31,6 +32,7 @@ public class CharCounter {
                 charCounter.put(c, charCounter.get(c) + 1);
             }
         }
+        
         StringTokenizer stn = new StringTokenizer(content);
         
         while (stn.hasMoreTokens()){
@@ -42,7 +44,36 @@ public class CharCounter {
             }
         }
     }
+    
+    
+    public void testAnalyze(String content){
+        
+        
+        for (char c : content.toCharArray()) {
+            if (Character.isSpaceChar(c)){
+                continue;
+            }
+            if (!charCounter.containsKey(c)){
+                charCounter.put(c, 1);
+            }
+            else charCounter.put(c, charCounter.get(c) + 1);
+        }
+        
+        StringTokenizer stringToken = new StringTokenizer(content);
+        
+        while (stringToken.hasMoreTokens()){
+            String token = stringToken.nextToken();
+            
+            if (!wordCounter.containsKey(token)){
+                wordCounter.put(token, 1);
+            }
+            else
+                wordCounter.put(token, wordCounter.get(token) + 1);
+        }
+        
+    }
     public void display (){
+        
         System.out.println(wordCounter);
         System.out.println(charCounter);
     }

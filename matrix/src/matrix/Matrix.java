@@ -6,6 +6,7 @@ package matrix;
 
 import java.util.Scanner;
 
+
 /**
  *
  * @author ADMIN
@@ -30,13 +31,12 @@ public class Matrix {
                     m.additionMatrix(matrix1, matrix2);
                     break;
                 case 2:
-
+                    m.subtractionMatrix(matrix1, matrix2);
                     break;
                 case 3:
-
+                    m.multiplicationMatrix(matrix1, matrix2);
                     break;
                 case 4:
-
                     return;
 
                 default:
@@ -93,7 +93,8 @@ public class Matrix {
     public void displayMatrix(int[][] matrix) {
         int row = matrix.length;
         int col = matrix[0].length;
-
+            System.out.println("matrix length = " + matrix.length);
+            System.out.println("matrix[0] length = " + matrix[0].length);
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 System.out.print("[" + matrix[i][j] + "]");
@@ -103,7 +104,8 @@ public class Matrix {
     }
 
     public void additionMatrix(int[][] matrix1, int[][] matrix2) {
-        if (matrix1.length != matrix2.length || matrix1[0].length != matrix2[0].length) {
+        if (matrix1.length != matrix2.length || 
+            matrix1[0].length != matrix2[0].length) {
             System.err.println("Matrices must have the same dimensions for addition.");
             return;
         }
@@ -165,7 +167,33 @@ public class Matrix {
             System.out.println();
         }
     }
-
+    
+    public void testMutiply(int[][] matrix1, int[][] matrix2){
+        if(matrix1[0].length != matrix2.length){
+            System.out.println("number of collumn 1 must equal to number of"
+                    + " row in matrix 2");
+            return;
+        }
+        displayMatrix(matrix1);
+        System.out.println("*");
+        displayMatrix(matrix2);
+        System.out.println("=");
+        //out of length
+        int row = matrix1.length;
+        int col1 = matrix1[0].length;
+        int col2 = matrix2[0].length;
+        int[][] result = new int[row][col2];
+        
+        for(int i = 0; i < row; i++){
+            for(int j=0;j<col1;j++){
+                for (int k=0;k<col2;k++){
+                    result[i][j] = matrix1[i][k] * matrix2[k][j];
+                }
+               System.out.print("[" + result[i][j] + "]");
+            }
+            System.out.println();
+        }
+    }
     
 
 }
